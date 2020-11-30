@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+
+    <title>Document</title>
+    <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.9.2.css">
+
+</head>
+<body>
+    
+    <div id="qunit"></div>
+    <div id="qunit-fixture"></div>
+    <script src="https://code.jquery.com/qunit/qunit-2.9.2.js"></script>
+    <script src="ObligOppgave2.js"></script>
+
+    <script>
+        
+        function show() {  
+        }
+
+        QUnit.test("Velg stolpe", function (assert) {
+            numbers = [7, 3, 1, 5, 8];
+            chooseBar(3);
+            let actual = chosenBar;
+            let expected = 3;
+            assert.deepEqual(actual, expected);
+        });
+
+        QUnit.test("Velg samme stolpe", function (assert) {
+            numbers = [7, 3, 1, 5, 8];
+            chooseBar();
+            let actual = chosenBar;
+            let expected = null;
+            assert.deepEqual(actual, expected);
+        });
+
+        QUnit.test("Fjerner valgt stolpe", function (assert) {
+                numbers = [7, 3, 1, 5, 8];
+                chosenBar = 3;
+                removeBar();
+                let actual = numbers;
+                let expected = [7, 3, 5, 8];
+                assert.deepEqual(actual, expected);
+        });
+
+        QUnit.test("Endre valgt stolpe", function (assert) {
+                numbers = [7, 3, 1, 5, 8];
+                chosenBar = 3;
+                inputValue = 6;
+                changeChosenBar();
+                let actual = numbers;
+                let expected = [7, 3, 6, 5, 8];
+                assert.deepEqual(actual, expected);
+        });
+
+        QUnit.test("Legg til ny stolpe", function (assert) {
+                numbers = [7, 3, 1, 5, 8];
+                inputValue = 6;
+                addNewBar();
+                let actual = numbers;
+                let expected = [7, 3, 1, 5, 8, 6];
+                assert.deepEqual(actual, expected);
+        });
+
+    </script>
+
+</body>
+</html>
